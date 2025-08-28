@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Island Unstrand</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="home-screen">
+        <h1>Island Unstrand</h1>
+        <p>Washed ashore on an unknown island, you must use your wits to survive the elements and uncover its secrets.</p>
+        <div id="difficulty-selection">
+            <h3>Choose your difficulty:</h3>
+            <button class="difficulty-btn active" data-difficulty="normal">Normal</button>
+            <button class="difficulty-btn" data-difficulty="easy">Easy</button>
+            <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+        </div>
+        <button id="start-game-btn">Begin Survival</button>
+    </div>
+
+    <div id="game-container" class="hidden">
+        <div id="world-panel">
+            <div id="header">
+                <h1>Day <span id="day-stat">1</span> - <span id="clock-stat">Morning</span></h1>
+                <div id="location-stat">Location: (0, 0) - Forest</div>
+                <div id="weather-stat">Weather: Clear ☀️</div>
+            </div>
+            <div id="log-display">
+                <p id="log-text">You wake up on a sandy beach. The air is still. Your goal: survive.</p>
+            </div>
+            <div id="combat-log" class="hidden"></div>
+        </div>
+
+        <div id="player-panel">
+            <div id="stats-container">
+                <div class="stat-bar-container">
+                    <span>Health</span>
+                    <div class="stat-bar" id="health-bar-bg"><div class="stat-bar-fill" id="health-bar-fill"></div></div>
+                    <span id="health-stat-text">100/100</span>
+                </div>
+                <div class="stat-bar-container">
+                    <span>Hunger</span>
+                    <div class="stat-bar" id="hunger-bar-bg"><div class="stat-bar-fill" id="hunger-bar-fill"></div></div>
+                    <span id="hunger-stat-text">100/100</span>
+                </div>
+            </div>
+
+            <h3>Inventory (<span id="inventory-weight">0</span>/<span id="inventory-capacity">20</span>)</h3>
+            <div id="inventory-display"></div>
+
+            <div id="tabs">
+                <button class="tab-link active" data-tab="actions-tab">Actions</button>
+                <button class="tab-link" data-tab="crafting-tab">Crafting</button>
+                <button class="tab-link" data-tab="building-tab">Building</button>
+            </div>
+
+            <div id="actions-tab" class="tab-content active">
+                </div>
+
+            <div id="crafting-tab" class="tab-content">
+                </div>
+
+            <div id="building-tab" class="tab-content">
+                </div>
+        </div>
+    </div>
+
+    <div id="ending-screen" class="hidden">
+        <div id="ending-content">
+            <h2 id="ending-title">The End</h2>
+            <p id="ending-text"></p>
+            <button id="restart-btn">Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
