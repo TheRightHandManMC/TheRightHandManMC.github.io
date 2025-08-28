@@ -1,0 +1,162 @@
+:root {
+    --bg-dark: #1a1a1a;
+    --bg-medium: #2b2b2b;
+    --bg-light: #3e3e3e;
+    --border-color: #444;
+    --text-primary: #c5c5c5;
+    --text-accent: #aaffaa;
+    --text-danger: #ff8888;
+    --text-info: #88ffff;
+    --bar-health: #7de226;
+    --bar-hunger: #ffb400;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Home Screen Styles */
+#home-screen {
+    background-color: var(--bg-medium);
+    padding: 40px;
+    border-radius: 8px;
+    border: 2px solid var(--border-color);
+    text-align: center;
+    max-width: 600px;
+}
+#home-screen h1 {
+    color: var(--text-accent);
+    margin-top: 0;
+}
+#difficulty-selection {
+    margin: 30px 0;
+}
+#difficulty-selection h3 {
+    margin-bottom: 15px;
+}
+.difficulty-btn {
+    margin: 0 5px;
+    padding: 10px 20px;
+}
+.difficulty-btn.active {
+    background-color: var(--text-accent);
+    color: var(--bg-dark);
+    border-color: var(--text-accent);
+}
+#start-game-btn {
+    font-size: 1.2em;
+    padding: 15px 30px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Game Container Styles */
+#game-container {
+    width: 95%;
+    max-width: 1200px;
+    height: 90vh;
+    max-height: 800px;
+    background-color: var(--bg-medium);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+#world-panel, #player-panel {
+    background-color: var(--bg-dark);
+    padding: 15px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#header {
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+#header h1 { margin: 0; color: var(--text-accent); font-size: 1.5em; }
+#location-stat { margin-top: 5px; color: var(--text-info); }
+#weather-stat { margin-top: 5px; color: var(--text-info); }
+
+
+#log-display, #combat-log {
+    background-color: #111;
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    border-radius: 4px;
+    font-size: 1.1em;
+    line-height: 1.5;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+#combat-log { border-color: var(--text-danger); }
+
+#player-panel { overflow-y: auto; }
+#stats-container { margin-bottom: 15px; }
+.stat-bar-container { margin-bottom: 10px; }
+.stat-bar { background-color: var(--bg-light); border-radius: 5px; height: 20px; width: 100%; border: 1px solid var(--border-color); }
+.stat-bar-fill { height: 100%; border-radius: 5px; transition: width 0.3s ease; }
+#health-bar-fill { background-color: var(--bar-health); }
+#hunger-bar-fill { background-color: var(--bar-hunger); }
+#health-stat-text, #hunger-stat-text { float: right; margin-top: -18px; font-size: 0.9em; }
+
+h3 { margin-bottom: 5px; color: var(--text-accent); border-bottom: 1px solid var(--border-color); padding-bottom: 5px;}
+#inventory-display {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 5px;
+    margin-bottom: 15px;
+    max-height: 120px;
+    overflow-y: auto;
+}
+.inventory-item { background: var(--bg-light); padding: 5px; border-radius: 3px; text-align: center; font-size: 0.9em; }
+
+#tabs { display: flex; border-bottom: 1px solid var(--border-color); }
+.tab-link {
+    background: none; border: none; color: var(--text-primary); padding: 10px 15px; cursor: pointer;
+    border-bottom: 3px solid transparent;
+}
+.tab-link.active { color: var(--text-accent); border-bottom: 3px solid var(--text-accent); }
+.tab-content { padding-top: 15px; display: none; }
+.tab-content.active { display: block; }
+
+#actions-tab, #crafting-tab, #building-tab {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+button {
+    background-color: var(--bg-light); color: var(--text-primary); border: 1px solid var(--border-color);
+    padding: 12px; font-family: inherit; font-size: 1em; cursor: pointer; border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s; text-align: left;
+}
+button:hover:not(:disabled) { background-color: var(--text-accent); color: var(--bg-dark); }
+button:disabled { background-color: #222; color: #555; cursor: not-allowed; }
+button.danger-action { border-color: var(--text-danger); color: var(--text-danger); }
+button.danger-action:hover:not(:disabled) { background-color: var(--text-danger); color: var(--bg-dark); }
+
+.hidden { display: none !important; }
+#ending-screen {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9);
+    display: flex; justify-content: center; align-items: center; z-index: 100;
+}
+#ending-content {
+    background-color: var(--bg-dark); padding: 30px; border-radius: 8px; border: 2px solid var(--text-accent);
+    text-align: center; max-width: 600px;
+}
+#ending-title { color: var(--text-accent); }
